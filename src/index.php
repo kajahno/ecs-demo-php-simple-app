@@ -20,6 +20,8 @@
                 <p>Your PHP application is now running on a container in Amazon ECS.</p>
                 <p>The container is running PHP version <?php echo phpversion(); ?>.</p>
                 <p>My github is: <a href="https://github.com/kajahno" target="_blank">https://github.com/kajahno</a>.</p>
+                <br/>
+                <h3>"There are 10 kind of people: the ones that understand binary and the ones who don't"</h3>
                 <?php
                         $myfile = fopen("/var/www/my-vol/date", "r") or die("");
                         echo fread($myfile,filesize("/var/www/my-vol/date"));
