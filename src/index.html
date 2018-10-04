@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Simple web App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        <style>body {margin-top: 40px; background-color: #333;} .green{ color:#00c853 } .red{ color:#f44336  }</style>
+        <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="hero-unit">
+                <h1>Simple web App</h1>
+                <h2>Congratulations</h2>
+                <p>Your web application is now running on a container in Amazon ECS.</p>
+                <p>The container is running under nginx.</p>
+                <p>My github is: <a href="https://github.com/kajahno" target="_blank">https://github.com/kajahno</a>.</p>
+                <br/>
+                <h3>"There are 10 kind of people: the ones that understand binary and the ones who don't"</h3>
+                <div>
+                    <button type="button" id="btnGetTxt" onclick="getTxt()">Read date from server</button>
+                    <h3><span id="myspan"></span></h3>
+                </div>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script>
+            getTxt = function (){
+              $.ajax({
+                url:'date',
+                success: function (data){
+                  $("#myspan")
+                    .html(data)
+                    .addClass("green")
+                    .removeClass("red");
+                },
+                error: function (){
+                  $("#myspan")
+                    .html("couldn't retrieve file 'data' from server")
+                    .addClass("red")
+                    .removeClass("green");
+                }
+              });
+            }
+            </script>
+    </body>
+
+</html>
